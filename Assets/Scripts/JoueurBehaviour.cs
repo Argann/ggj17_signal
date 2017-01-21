@@ -25,13 +25,19 @@ public class JoueurBehaviour : MonoBehaviour {
 		CLIMBBACK
 	}
 
-    public bool CanMove { get; set; }
+    [SerializeField]
+    private bool canMove;
+
+    public bool CanMove {
+        get { return canMove; }
+        set { canMove = value; }
+    }
+
 
     public bool firstUp;
 
     void Start () {
 		state = States.IDLE;
-        CanMove = true;
         firstUp = true;
 	}
 

@@ -13,6 +13,9 @@ public class ShowText : MonoBehaviour {
 	private int current = 0 ;
 
     [SerializeField]
+    private bool launchAtStart;
+
+    [SerializeField]
     [Range(0f, 1f)]
     private float cooldown;
 
@@ -25,6 +28,12 @@ public class ShowText : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		objet = GetComponent<Text> ();
+        if (launchAtStart) {
+            texts = new string[1];
+            texts[0] = objet.text;
+            objet.text = "";
+            StartCoroutine(showNextText());
+        }
 	}
 
     public IEnumerator showNextText() {
@@ -34,8 +43,11 @@ public class ShowText : MonoBehaviour {
             yield return new WaitForSeconds(cooldown);
         }
 		yield return new WaitForSeconds(waitBeforeEnd);
-		objet.text = "";
-		current++;
-		Camera.main.GetComponent<CameraTransition> ().Next ();
+		
+        if (!launchAtStart) {
+            objet.text = "";
+            current++;
+            Camera.main.GetComponent<CameraTransition>().Next();
+        }
     }
 }
