@@ -16,7 +16,7 @@ public class JoueurBehaviour : MonoBehaviour {
 	void Update () {
 		Vector3 move = new Vector3 ();
 		move.x = Time.deltaTime;
-		if (Input.GetAxisRaw ("Up&Down") > 0) {
+		if (Input.GetAxisRaw ("Up&Down") > 0 && state != States.CLIMBBACK) {
 			move.y += 0.1f;
 			state = States.DROPPING;
 		} else if (state == States.DROPPING) {
@@ -26,9 +26,9 @@ public class JoueurBehaviour : MonoBehaviour {
 			state = States.CLIMBBACK;
 		} else if (state == States.CLIMBBACK) {
 			Vector3 back = new Vector3 ();
-			back.y = .1f * Mathf.Sign(transform.position.y);
+			back.y = transform.position.y /6;
 			transform.position -= back;
-			if ( transform.position.y < .1f && transform.position.y > -.1f)
+			if ( transform.position.y < .05f && transform.position.y > -.05f)
 				state = States.IDLE;
 		}
 		if (transform.position.y > 4.5 || transform.position.y < -4.5)
