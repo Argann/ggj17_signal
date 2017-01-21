@@ -6,9 +6,11 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Text))]
 public class ShowText : MonoBehaviour {
 
-    private string text;
+	[SerializeField]
+	public string[] texts;
 
     private Text objet;
+	private int current = 0 ;
 
     [SerializeField]
     [Range(0f, 1f)]
@@ -17,19 +19,23 @@ public class ShowText : MonoBehaviour {
     [SerializeField]
     private float waitBeforeStart;
 
+	[SerializeField]
+	private float waitBeforeEnd;
+
 	// Use this for initialization
 	void Start () {
-        objet = GetComponent<Text>();
-        text = objet.text;
-        objet.text = "";
-        StartCoroutine(showText());
+		objet = GetComponent<Text> ();
 	}
 
-    IEnumerator showText() {
+    public IEnumerator showNextText() {
         yield return new WaitForSeconds(waitBeforeStart);
-        foreach (char ch in text) {
+		foreach (char ch in texts[current]) {
             objet.text += ch;
             yield return new WaitForSeconds(cooldown);
         }
+		yield return new WaitForSeconds(waitBeforeEnd);
+		objet.text = "";
+		current++;
+		Camera.main.GetComponent<CameraTransition> ().Next ();
     }
 }
