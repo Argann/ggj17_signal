@@ -17,7 +17,7 @@ public class LevelsManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		player = GameObject.FindGameObjectWithTag ("Player");
-		this.launchLevel ();
+		//this.launchLevel ();
 		LetterCollider[] lettersColider = GetComponentsInChildren<LetterCollider> ();
 		foreach (LetterCollider letterColider in lettersColider) {
 			lettersWaypoint.Add (letterColider.gameObject);

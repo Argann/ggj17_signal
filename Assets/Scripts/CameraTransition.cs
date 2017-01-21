@@ -15,7 +15,8 @@ public class CameraTransition : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        cursor = 0;
+        cursor =-1;
+		Next ();
 	}
 
     public void Next() {

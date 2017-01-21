@@ -39,7 +39,10 @@ public class ShowText : MonoBehaviour {
     public IEnumerator showNextText() {
         yield return new WaitForSeconds(waitBeforeStart);
 		foreach (char ch in texts[current]) {
-            objet.text += ch;
+			if (ch == '+')
+				objet.text += "\n";
+			else
+            	objet.text += ch;
             yield return new WaitForSeconds(cooldown);
         }
 		yield return new WaitForSeconds(waitBeforeEnd);

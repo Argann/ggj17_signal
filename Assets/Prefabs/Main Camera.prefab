@@ -195,9 +195,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   texts:
-  - Ceci est mon histoire
-  - toto
-  cooldown: 0.2
+  - My beloved child. I know this voice.+She has been with me since I exist.
+  - This world is wonderful.+ I love my mommy and my daddy.+They are playing with
+    me.
+  - I have so many friends!+I like to have fun with them!+ If only I didn't have to
+    go to school.
+  - My parents don't understand me...+ They have no way to know what+I'm going through...
+  - I finally made it!+ No more school, no more teacher.+ A whole new world awaits
+    me.
+  - My dear, I love you so much.
+  - I am peaceful.+My wife and my childs bring me so much joy.
+  - Life looks so slow+ and so fast at the same time.+Mommy, daddy, I love you both,
+    you know?+I hope the two of you rest in peace,+wherever you are.
+  - My beloved wife.+ Our childs have grown big now.+They have become wonderful adults.+I
+    may meet you again now.
+  launchAtStart: 0
+  cooldown: 0.07
   waitBeforeStart: 1
   waitBeforeEnd: 1
 --- !u!114 &114271979460579292
@@ -314,6 +327,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -266.25, y: -149.52}
-  m_SizeDelta: {x: 92.47, y: 30}
+  m_AnchoredPosition: {x: -265.93, y: -149.35}
+  m_SizeDelta: {x: 265.23, y: 191.96}
   m_Pivot: {x: 0.5, y: 0.5}
