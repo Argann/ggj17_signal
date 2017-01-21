@@ -11,18 +11,13 @@ public class LetterManager : MonoBehaviour {
 	void Start () {
 		parent = GameObject.FindGameObjectWithTag ("Canvas");
 		// Instanciation d'une lettre
-		Vector3 posLetter = parent.transform.position;
-		posLetter.x += 200;
-		posLetter.y += 100;
-		GameObject instanciatedLetter = Instantiate (letter, posLetter, new Quaternion (), parent.transform);
+		Vector3 pos = parent.transform.position;
+		GameObject instanciatedLetter = Instantiate (letter, pos, new Quaternion (), parent.transform);
 		letter.GetComponent<Text>().text = "A";
 
 		// Instanciation du collider associe
-		Vector3 posCollider = new Vector3(-2.36f, 0.19f, 0f);
-		posCollider.x += 200 * .0313f;
-		posCollider.y += 100 * .0313f;
-		GameObject instanciatedCollider = Instantiate (myCollider, posCollider, new Quaternion ());
-		instanciatedCollider.GetComponent<LetterCollider> ().boundLetter = instanciatedLetter;
+		GameObject instanciatedCollider = Instantiate (myCollider, pos, new Quaternion ());
+		instanciatedCollider.GetComponent<LetterCollider> ().BoundLetter = instanciatedLetter;
 	}
 
 	// Update is called once per frame
