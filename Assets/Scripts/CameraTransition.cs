@@ -10,6 +10,7 @@ public class CameraTransition : MonoBehaviour {
     [SerializeField]
     private List<GameObject> waypoints;
 
+	[SerializeField]
     private int cursor;
 
 	// Use this for initialization
@@ -29,6 +30,14 @@ public class CameraTransition : MonoBehaviour {
             transform.position = Vector3.MoveTowards(transform.position, waypoints[cursor].transform.position, Time.deltaTime * speed);
             yield return new WaitForEndOfFrame();
         }
+		JoueurBehaviour jb = GameObject.FindGameObjectWithTag ("Player").GetComponent<JoueurBehaviour> ();
+		if (cursor % 2 == 0) {
+			jb.LaunchPlayer ();
+			waypoints [cursor].GetComponent<LevelsManager> ().launchLevel ();
+		} else {
+			jb.StopPlayer ();
+			StartCoroutine(GameObject.FindGameObjectWithTag ("CanvasBen").GetComponentInChildren<ShowText> ().showNextText ());
+		}
     }
 
 

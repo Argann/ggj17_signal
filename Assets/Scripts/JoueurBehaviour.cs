@@ -17,6 +17,8 @@ public class JoueurBehaviour : MonoBehaviour {
     [SerializeField]
     private float speed;
 
+	private float stop = 1 ;
+
 	private enum  States {
 		IDLE,
 		DROPPING,
@@ -46,8 +48,9 @@ public class JoueurBehaviour : MonoBehaviour {
     }
 
     void Update () {
+
 		Vector3 move = new Vector3 ();
-		move.x = Time.deltaTime * speed;
+		move.x = Time.deltaTime * speed * stop;
 
         if (Input.GetAxisRaw("Up&Down") > 0 && firstUp && state != States.CLIMBBACK && CanMove) {
             PlayBeep();
@@ -77,5 +80,13 @@ public class JoueurBehaviour : MonoBehaviour {
 		if (transform.position.y > 4.5 || transform.position.y < -4.5)
 			move.y = 0f;
 		transform.position += move;
+	}
+
+	public void StopPlayer(){
+		stop = 0;
+	}
+
+	public void LaunchPlayer(){
+		stop = 1;
 	}
 }
