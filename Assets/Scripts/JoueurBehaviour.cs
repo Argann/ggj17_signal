@@ -9,6 +9,12 @@ public class JoueurBehaviour : MonoBehaviour {
     private AudioClip beep;
 
     [SerializeField]
+    private AudioClip heart1;
+
+    [SerializeField]
+    private AudioClip heart2;
+
+    [SerializeField]
     private float speed;
 
 	private enum  States {
@@ -31,15 +37,25 @@ public class JoueurBehaviour : MonoBehaviour {
         GameObject.Find("Main Camera").GetComponent<AudioSource>().PlayOneShot(beep);
     }
 
-	void Update () {
+    void PlayHeart1() {
+        GameObject.Find("Main Camera").GetComponent<AudioSource>().PlayOneShot(heart1);
+    }
+
+    void PlayHeart2() {
+        GameObject.Find("Main Camera").GetComponent<AudioSource>().PlayOneShot(heart2);
+    }
+
+    void Update () {
 		Vector3 move = new Vector3 ();
 		move.x = Time.deltaTime * speed;
 
         if (Input.GetAxisRaw("Up&Down") > 0 && firstUp && state != States.CLIMBBACK && CanMove) {
             PlayBeep();
+            PlayHeart1();
             firstUp = false;
         } else if (Input.GetAxisRaw("Up&Down") == 0 && !firstUp) {
             firstUp = true;
+            PlayHeart2();
         }
 
 
