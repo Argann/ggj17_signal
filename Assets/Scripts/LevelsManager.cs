@@ -6,7 +6,6 @@ public class LevelsManager : MonoBehaviour {
 
 	private List<GameObject> lettersWaypoint = new List<GameObject>();
 	private bool isFinished = false;
-	private bool isRebouting = false;
 
 	private GameObject player;
 		
