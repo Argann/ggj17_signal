@@ -66,4 +66,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0277b11eca81ea944a20de5c406a3bbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boundLetter: {fileID: 0}
+  letter: {fileID: 1756991339287426, guid: 586c55871e571634f96ac6769a5ebba0, type: 2}
+  value: A
