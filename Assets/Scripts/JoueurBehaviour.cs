@@ -4,19 +4,46 @@ using UnityEngine;
 
 public class JoueurBehaviour : MonoBehaviour {
 	private States state;
+
+    [SerializeField]
+    private AudioClip beep;
+
+    [SerializeField]
+    private float speed;
+
 	private enum  States {
 		IDLE,
 		DROPPING,
 		CLIMBBACK
 	}
-	void Start () {
+
+    public bool CanMove { get; set; }
+
+    public bool firstUp;
+
+    void Start () {
 		state = States.IDLE;
+        CanMove = true;
+        firstUp = true;
 	}
+
+    void PlayBeep() {
+        GameObject.Find("Main Camera").GetComponent<AudioSource>().PlayOneShot(beep);
+    }
 
 	void Update () {
 		Vector3 move = new Vector3 ();
-		move.x = Time.deltaTime;
-		if (Input.GetAxisRaw ("Up&Down") > 0 && state != States.CLIMBBACK) {
+		move.x = Time.deltaTime * speed;
+
+        if (Input.GetAxisRaw("Up&Down") > 0 && firstUp && state != States.CLIMBBACK && CanMove) {
+            PlayBeep();
+            firstUp = false;
+        } else if (Input.GetAxisRaw("Up&Down") == 0 && !firstUp) {
+            firstUp = true;
+        }
+
+
+		if (Input.GetAxisRaw ("Up&Down") > 0 && state != States.CLIMBBACK && CanMove) {
 			move.y += 0.1f;
 			state = States.DROPPING;
 		} else if (state == States.DROPPING) {
