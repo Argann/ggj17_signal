@@ -10,6 +10,7 @@ public class CameraTransition : MonoBehaviour {
     [SerializeField]
     private List<GameObject> waypoints;
 
+	[SerializeField]
     private int cursor;
 
 	// Use this for initialization
@@ -29,6 +30,7 @@ public class CameraTransition : MonoBehaviour {
             transform.position = Vector3.MoveTowards(transform.position, waypoints[cursor].transform.position, Time.deltaTime * speed);
             yield return new WaitForEndOfFrame();
         }
+		waypoints [cursor].GetComponent<LevelsManager> ().launchLevel ();
     }
 
 
