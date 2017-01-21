@@ -31,7 +31,7 @@ public class CameraTransition : MonoBehaviour {
             yield return new WaitForEndOfFrame();
         }
 		JoueurBehaviour jb = GameObject.FindGameObjectWithTag ("Player").GetComponent<JoueurBehaviour> ();
-		if (cursor % 2 == 0) {
+		if (cursor % 2 == 1) {
 			jb.LaunchPlayer ();
 			waypoints [cursor].GetComponent<LevelsManager> ().launchLevel ();
 		} else {
