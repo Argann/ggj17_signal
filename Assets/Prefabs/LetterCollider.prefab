@@ -68,3 +68,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   letter: {fileID: 1756991339287426, guid: 586c55871e571634f96ac6769a5ebba0, type: 2}
   value: A
+  particles: {fileID: 1134818903897408, guid: 712cf9aa63cd7c942aedd23a4f5797a8, type: 2}

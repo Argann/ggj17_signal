@@ -64,6 +64,8 @@ public class CameraTransition : MonoBehaviour {
 			jb.LaunchPlayer ();
 			waypoints [cursor].GetComponent<LevelsManager> ().launchLevel ();
 		} else {
+			if(cursor!=0)
+				Destroy(waypoints[cursor-1]);
 			jb.StopPlayer ();
 			StartCoroutine(GameObject.FindGameObjectWithTag ("CanvasBen").GetComponentInChildren<ShowText> ().showNextText ());
 			GetComponent<JoueurConfigLevelManager> ().changeConf (cursor / 2);

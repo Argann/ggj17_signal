@@ -8,6 +8,7 @@ public class JoueurConfigLevelManager : MonoBehaviour {
 	JoueurBehaviour joueurbehaviour ;
 	TrailRenderer trailRenderer ;
 	Text textObjet ;
+	SpriteRenderer spriteRenderer ;
 
 	[SerializeField]
 	List<Color> colors ;
@@ -19,13 +20,15 @@ public class JoueurConfigLevelManager : MonoBehaviour {
 		textObjet = GameObject.FindGameObjectWithTag ("CanvasBen").GetComponentInChildren<Text> ();
 		joueurbehaviour = GameObject.FindGameObjectWithTag ("Player").GetComponent<JoueurBehaviour> ();
 		trailRenderer = GameObject.FindGameObjectWithTag ("Player").GetComponent<TrailRenderer> ();
+		spriteRenderer = GameObject.FindGameObjectWithTag ("Player").GetComponent<SpriteRenderer> ();
 	}
 
 	// Update is called once per frame
 	public void changeConf(int current){
-		joueurbehaviour.speed = speeds[current];
-		textObjet.color = colors [current];
-		trailRenderer.startColor = colors [current];
-		trailRenderer.endColor = colors [current];
+		joueurbehaviour.speed = speeds[current];//speed
+		textObjet.color = colors [current];//text
+		trailRenderer.startColor = colors [current];//trace
+		trailRenderer.endColor = colors [current]; //trace
+		spriteRenderer.color = colors [current]; //cursor
 	}
 }
