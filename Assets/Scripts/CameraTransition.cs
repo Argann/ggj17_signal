@@ -20,10 +20,12 @@ public class CameraTransition : MonoBehaviour {
 	}
 
     public void Next() {
-        if (cursor < waypoints.Count) {
-            cursor++;
-            StartCoroutine(moveToNextPoint());
-        }
+		if (cursor + 1 < waypoints.Count) {
+			cursor++;
+			StartCoroutine (moveToNextPoint ());
+		} else {
+			Debug.Log ("the end");
+		}
     }
 
     IEnumerator moveToNextPoint() {

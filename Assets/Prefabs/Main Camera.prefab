@@ -60,9 +60,27 @@ GameObject:
   - component: {fileID: 124653245937618010}
   - component: {fileID: 81728928830387468}
   - component: {fileID: 114689803906861270}
+  - component: {fileID: 114735824011510824}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1958157189098620
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 224975942389304308}
+  - component: {fileID: 222748037569234266}
+  - component: {fileID: 114241947421118924}
+  m_Layer: 5
+  m_Name: Background
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -195,24 +213,50 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   texts:
-  - My beloved child. I know this voice.+She has been with me since I exist.
-  - This world is wonderful.+ I love my mommy and my daddy.+They are playing with
-    me.
-  - I have so many friends!+I like to have fun with them!+ If only I didn't have to
+  - '"My beloved child."+I know this voice.+She has been with me since I exist.'
+  - This world is wonderful.+I love my mommy and my daddy.+They are playing with me.
+  - I have so many friends !I like to have fun with them !+If only I didn't have to
     go to school.
-  - My parents don't understand me...+ They have no way to know what+I'm going through...
-  - I finally made it!+ No more school, no more teacher.+ A whole new world awaits
+  - My parents don't understand me...+They have no way to know what+I'm going through...
+  - I finally made it !+No more school, no more teacher.+A whole new world awaits
     me.
   - My dear, I love you so much.
   - I am peaceful.+My wife and my childs bring me so much joy.
-  - Life looks so slow+ and so fast at the same time.+Mommy, daddy, I love you both,
-    you know?+I hope the two of you rest in peace,+wherever you are.
-  - My beloved wife.+ Our childs have grown big now.+They have become wonderful adults.+I
+  - Life looks so slow+and yet so fast at the same time.+Mommy, daddy, I love you
+    both, you know?+I hope the two of you rest in peace,+wherever you are.
+  - My beloved wife.+Our childs have grown big now.+They have become wonderful adults.+I
     may meet you again now.
   launchAtStart: 0
   cooldown: 0.07
   waitBeforeStart: 1
   waitBeforeEnd: 1
+--- !u!114 &114241947421118924
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1958157189098620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 2100000, guid: e814cc20ad1f44e4d811fe41acbd301f, type: 2}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
 --- !u!114 &114271979460579292
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -261,6 +305,37 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   cursor: 0
+--- !u!114 &114735824011510824
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1951800987334394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dcfaf8f442d0514e8176f9ee0246a22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colors:
+  - {r: 0, g: 0.5352938, b: 0.85294116, a: 1}
+  - {r: 0.7352941, g: 0.10649086, b: 0, a: 1}
+  - {r: 0.9632353, g: 0.89680517, b: 0, a: 1}
+  - {r: 0.67165875, g: 0.74264705, b: 0.6838981, a: 1}
+  - {r: 0, g: 0.6764706, b: 0.11663288, a: 1}
+  - {r: 0.7941176, g: 0, b: 0.50933063, a: 1}
+  - {r: 0.41521317, g: 0, b: 0.6764706, a: 1}
+  - {r: 0.58823526, g: 0.58823526, b: 0.58823526, a: 1}
+  - {r: 0.029411793, g: 0.51805294, b: 1, a: 1}
+  speeds:
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
 --- !u!124 &124653245937618010
 Behaviour:
   m_ObjectHideFlags: 1
@@ -274,6 +349,12 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1816387952498842}
+--- !u!222 &222748037569234266
+CanvasRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1958157189098620}
 --- !u!223 &223737501216270248
 Canvas:
   m_ObjectHideFlags: 1
@@ -304,6 +385,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 0.86956465, z: 1}
   m_Children:
   - {fileID: 224754830753566614}
+  - {fileID: 224975942389304308}
   m_Father: {fileID: 4440435637245190}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -329,4 +411,22 @@ RectTransform:
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -265.93, y: -149.35}
   m_SizeDelta: {x: 265.23, y: 191.96}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!224 &224975942389304308
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1958157189098620}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 224497237537460768}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -265.74, y: -149.39996}
+  m_SizeDelta: {x: -513.35, y: -288.03}
   m_Pivot: {x: 0.5, y: 0.5}
