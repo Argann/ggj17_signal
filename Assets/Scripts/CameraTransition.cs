@@ -61,6 +61,13 @@ public class CameraTransition : MonoBehaviour {
 			jb.CanMove = false;
             StartCoroutine(endSFX());
         }
+        if (cursor == 10) {
+            GameObject.Find("CHILD").GetComponent<AutoBip>().CanMove = true;
+        }
+
+        if (cursor == 11) {
+            GameObject.Find("CHILD").GetComponent<AutoBip>().CanMove = false;
+        }
 		if (cursor % 2 == 1) {
 			jb.LaunchPlayer ();
 			waypoints [cursor].GetComponent<LevelsManager> ().launchLevel ();

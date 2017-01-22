@@ -179,6 +179,7 @@ MonoBehaviour:
   heart1: {fileID: 8300000, guid: 07b5bbefdc920da408e56515dc0bc2e0, type: 3}
   heart2: {fileID: 8300000, guid: 194adcdae1bf70d449306f2f0d2301f2, type: 3}
   speed: 1.2
+  canMove: 1
   upTime: 0.2
   cooltime: 2
   currentCooltime: 0

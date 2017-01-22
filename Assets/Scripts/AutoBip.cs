@@ -18,7 +18,17 @@ public class AutoBip : MonoBehaviour {
     [SerializeField]
     private float speed;
 
+
     private float stop = 1;
+
+    [SerializeField]
+    private bool canMove;
+
+    public bool CanMove {
+        get { return canMove; }
+        set { canMove = value; }
+    }
+
 
     private enum States {
         IDLE,
@@ -62,49 +72,50 @@ public class AutoBip : MonoBehaviour {
 
     void Update() {
 
+        if (canMove) {
+            if (currentCooltime > 0) {
+                currentCooltime -= Time.deltaTime;
+            } else if (currentCooltime < 0 && currentUptime > 0) {
+                currentlyUp = true;
+                currentUptime -= Time.deltaTime;
+            } else if (currentCooltime < 0 && currentUptime < 0) {
+                currentCooltime = cooltime;
+                currentUptime = upTime;
+                currentlyUp = false;
+            }
 
-        if (currentCooltime > 0) {
-            currentCooltime -= Time.deltaTime;
-        } else if (currentCooltime < 0 && currentUptime > 0) {
-            currentlyUp = true;
-            currentUptime -= Time.deltaTime;
-        } else if (currentCooltime < 0 && currentUptime < 0) {
-            currentCooltime = cooltime;
-            currentUptime = upTime;
-            currentlyUp = false;
+            Vector3 move = new Vector3();
+            move.x = Time.deltaTime * speed * stop;
+
+            if (currentlyUp && firstUp && state != States.CLIMBBACK) {
+                PlayBeep();
+                PlayHeart1();
+                firstUp = false;
+            } else if (!currentlyUp && !firstUp) {
+                firstUp = true;
+                PlayHeart2();
+            }
+
+
+            if (currentlyUp && state != States.CLIMBBACK) {
+                move.y += 0.1f;
+                state = States.DROPPING;
+            } else if (state == States.DROPPING) {
+                Vector3 drop = new Vector3();
+                drop.y = transform.position.y;
+                transform.position -= 2 * drop;
+                state = States.CLIMBBACK;
+            } else if (state == States.CLIMBBACK) {
+                Vector3 back = new Vector3();
+                back.y = transform.position.y / 6;
+                transform.position -= back;
+                if (transform.position.y < .05f && transform.position.y > -.05f)
+                    state = States.IDLE;
+            }
+            if (transform.position.y > 4.5 || transform.position.y < -4.5)
+                move.y = 0f;
+            transform.position += move;
         }
-
-        Vector3 move = new Vector3();
-        move.x = Time.deltaTime * speed * stop;
-
-        if (currentlyUp && firstUp && state != States.CLIMBBACK) {
-            PlayBeep();
-            PlayHeart1();
-            firstUp = false;
-        } else if (!currentlyUp && !firstUp) {
-            firstUp = true;
-            PlayHeart2();
-        }
-
-
-        if (currentlyUp && state != States.CLIMBBACK ) {
-            move.y += 0.1f;
-            state = States.DROPPING;
-        } else if (state == States.DROPPING) {
-            Vector3 drop = new Vector3();
-            drop.y = transform.position.y;
-            transform.position -= 2 * drop;
-            state = States.CLIMBBACK;
-        } else if (state == States.CLIMBBACK) {
-            Vector3 back = new Vector3();
-            back.y = transform.position.y / 6;
-            transform.position -= back;
-            if (transform.position.y < .05f && transform.position.y > -.05f)
-                state = States.IDLE;
-        }
-        if (transform.position.y > 4.5 || transform.position.y < -4.5)
-            move.y = 0f;
-        transform.position += move;
     }
 
     public void StopPlayer() {
