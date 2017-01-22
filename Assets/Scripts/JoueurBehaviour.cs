@@ -83,8 +83,13 @@ public class JoueurBehaviour : MonoBehaviour {
 			if ( transform.position.y < .05f && transform.position.y > -.05f)
 				state = States.IDLE;
 		}
-		if (transform.position.y > 4.5 || transform.position.y < -4.5)
+		if (transform.position.y > 4.5) {
 			move.y = 0f;
+			Vector3 drop = new Vector3 ();
+			drop.y = transform.position.y;
+			transform.position -= 2 * drop;
+			state = States.CLIMBBACK;
+		}
 		transform.position += move;
 	}
 
