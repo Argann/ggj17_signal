@@ -14,9 +14,12 @@ public class CameraTransition : MonoBehaviour {
 	[SerializeField]
     private int cursor;
 
+    [SerializeField]
+    private AudioClip beep;
+
 	// Use this for initialization
 	void Start () {
-        cursor =-1;
+        cursor = -1;
 		Next ();
 	}
 
@@ -24,9 +27,31 @@ public class CameraTransition : MonoBehaviour {
 		if (cursor + 1 < waypoints.Count) {
 			cursor++;
 			StartCoroutine (moveToNextPoint ());
+		} else if (cursor + 1 == waypoints.Count - 1) {
+            GameObject.Find("Joueur").GetComponent<JoueurBehaviour>().CanMove = false;
+            StartCoroutine(endSFX());
 		} else {
             SceneManager.LoadScene(2);
-		}
+        }
+    }
+
+    IEnumerator endSFX() {
+        AudioSource asou = GameObject.Find("Main Camera").GetComponent<AudioSource>();
+        float x = 0.5f;
+        while (asou.volume > 0.0f) {
+            x -= Time.deltaTime * 0.5f;
+            asou.volume = Mathf.Lerp(0.0f, 0.5f, x);
+            yield return new WaitForEndOfFrame();
+        }
+        asou.clip = null;
+        asou.volume = 0.0f;
+        asou.PlayOneShot(beep);
+        yield return new WaitForSeconds(5f);
+        while (asou.volume < 0.3f) {
+            x += Time.deltaTime * 0.5f;
+            asou.volume = Mathf.Lerp(0.0f, 0.5f, x);
+            yield return new WaitForEndOfFrame();
+        }
     }
 
     IEnumerator moveToNextPoint() {
@@ -46,6 +71,8 @@ public class CameraTransition : MonoBehaviour {
 			GetComponent<JoueurConfigLevelManager> ().changeConf (cursor / 2);
 		}
     }
+
+
 
 
 }
