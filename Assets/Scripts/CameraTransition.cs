@@ -38,6 +38,7 @@ public class CameraTransition : MonoBehaviour {
 		} else {
 			jb.StopPlayer ();
 			StartCoroutine(GameObject.FindGameObjectWithTag ("CanvasBen").GetComponentInChildren<ShowText> ().showNextText ());
+			GetComponent<JoueurConfigLevelManager> ().changeConf (cursor / 2);
 		}
     }
 
