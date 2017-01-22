@@ -4601,6 +4601,91 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.3
+--- !u!1 &683691310 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1951800987334394, guid: 05d39848cecd7104d801138cb83f6f76,
+    type: 2}
+  m_PrefabInternal: {fileID: 1426819276}
+--- !u!82 &683691311
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 683691310}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 6a3370d0744891f49afd0c9c58bf9855, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.3
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!1 &689130283
 GameObject:
   m_ObjectHideFlags: 0
@@ -9432,6 +9517,47 @@ Prefab:
       value: My beloved wife.+Our childs have grown big now.+They have become wonderful
         adults.+I may meet you again now.
       objectReference: {fileID: 0}
+    - target: {fileID: 114023835813284824, guid: 05d39848cecd7104d801138cb83f6f76,
+        type: 2}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 8faa195d82dec504ab685a79d566cde4,
+        type: 3}
+    - target: {fileID: 114023835813284824, guid: 05d39848cecd7104d801138cb83f6f76,
+        type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 114023835813284824, guid: 05d39848cecd7104d801138cb83f6f76,
+        type: 2}
+      propertyPath: m_FontData.m_MaxSize
+      value: 53
+      objectReference: {fileID: 0}
+    - target: {fileID: 114059102480791064, guid: 05d39848cecd7104d801138cb83f6f76,
+        type: 2}
+      propertyPath: m_DynamicPixelsPerUnit
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 114208540066762102, guid: 05d39848cecd7104d801138cb83f6f76,
+        type: 2}
+      propertyPath: cooldown
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 114208540066762102, guid: 05d39848cecd7104d801138cb83f6f76,
+        type: 2}
+      propertyPath: waitBeforeEnd
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114689803906861270, guid: 05d39848cecd7104d801138cb83f6f76,
+        type: 2}
+      propertyPath: cursor
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114689803906861270, guid: 05d39848cecd7104d801138cb83f6f76,
+        type: 2}
+      propertyPath: beep
+      value: 
+      objectReference: {fileID: 8300000, guid: aaf1af5d90f191047bbddf0eec1ddb65, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 05d39848cecd7104d801138cb83f6f76, type: 2}
   m_IsPrefabParent: 0
@@ -9545,6 +9671,21 @@ Prefab:
       propertyPath: canMove
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114861157726893134, guid: b62c0a52e28f47042827f3c3a754513c,
+        type: 2}
+      propertyPath: beep
+      value: 
+      objectReference: {fileID: 8300000, guid: c3663ac4e174cde41b4a4d22d03052da, type: 3}
+    - target: {fileID: 114861157726893134, guid: b62c0a52e28f47042827f3c3a754513c,
+        type: 2}
+      propertyPath: heart1
+      value: 
+      objectReference: {fileID: 8300000, guid: 07b5bbefdc920da408e56515dc0bc2e0, type: 3}
+    - target: {fileID: 114861157726893134, guid: b62c0a52e28f47042827f3c3a754513c,
+        type: 2}
+      propertyPath: heart2
+      value: 
+      objectReference: {fileID: 8300000, guid: 194adcdae1bf70d449306f2f0d2301f2, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b62c0a52e28f47042827f3c3a754513c, type: 2}
   m_IsPrefabParent: 0
