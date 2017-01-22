@@ -8,6 +8,8 @@ public class LetterCollider : MonoBehaviour {
 	private GameObject instanciedLetter;
 	public string value;
 	private GameObject parent;
+	[SerializeField]
+	private GameObject particles;
 
 	void Start () {
 		parent = GameObject.FindGameObjectWithTag ("Canvas");
@@ -18,6 +20,7 @@ public class LetterCollider : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
+		Instantiate (particles, gameObject.transform.position, Quaternion.identity, gameObject.transform.parent);
 		Destroy (instanciedLetter);
 		Destroy (gameObject);
 	}
