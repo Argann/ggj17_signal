@@ -15,7 +15,7 @@ public class JoueurBehaviour : MonoBehaviour {
     private AudioClip heart2;
 
     [SerializeField]
-    private float speed;
+    public float speed;
 
 	private float stop = 1 ;
 
