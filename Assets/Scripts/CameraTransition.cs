@@ -27,10 +27,7 @@ public class CameraTransition : MonoBehaviour {
 		if (cursor + 1 < waypoints.Count) {
 			cursor++;
 			StartCoroutine (moveToNextPoint ());
-		} else if (cursor + 1 == waypoints.Count - 1) {
-            GameObject.Find("Joueur").GetComponent<JoueurBehaviour>().CanMove = false;
-            StartCoroutine(endSFX());
-		} else {
+		} else if (cursor + 1 == waypoints.Count) {
             SceneManager.LoadScene(2);
         }
     }
@@ -46,7 +43,7 @@ public class CameraTransition : MonoBehaviour {
         asou.clip = null;
         asou.volume = 0.0f;
         asou.PlayOneShot(beep);
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(0.5f);
         while (asou.volume < 0.3f) {
             x += Time.deltaTime * 0.5f;
             asou.volume = Mathf.Lerp(0.0f, 0.5f, x);
@@ -62,7 +59,8 @@ public class CameraTransition : MonoBehaviour {
 		JoueurBehaviour jb = GameObject.FindGameObjectWithTag ("Player").GetComponent<JoueurBehaviour> ();
 		if (cursor == 17) {
 			jb.CanMove = false;
-		}
+            StartCoroutine(endSFX());
+        }
 		if (cursor % 2 == 1) {
 			jb.LaunchPlayer ();
 			waypoints [cursor].GetComponent<LevelsManager> ().launchLevel ();
@@ -74,8 +72,4 @@ public class CameraTransition : MonoBehaviour {
 			GetComponent<JoueurConfigLevelManager> ().changeConf (cursor / 2);
 		}
     }
-
-
-
-
 }
