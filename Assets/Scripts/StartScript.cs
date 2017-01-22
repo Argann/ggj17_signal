@@ -2,10 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class StartScript : MonoBehaviour {
 
     private bool started = false;
+
+    [SerializeField]
+    private Image black;
 
 	// Update is called once per frame
 	void Update () {
@@ -36,10 +40,12 @@ public class StartScript : MonoBehaviour {
 
         float x = text.color.a;
 
-        while (text.color.a > 0.0f) {
-            text.color = new Color(text.color.r, text.color.g, text.color.b, Mathf.Lerp(0.0f, 0.5f, x));
-            x -= Time.deltaTime * 0.5f;
+        while (black.color.a < 1.0f) {
+            black.color = new Color(black.color.r, black.color.g, black.color.b, Mathf.Lerp(0.0f, 1f, x));
+            x += Time.deltaTime * 0.5f;
             yield return new WaitForEndOfFrame();
         }
+
+        SceneManager.LoadScene(1);
     }
 }

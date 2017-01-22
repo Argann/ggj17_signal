@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class EndScript : MonoBehaviour {
 
@@ -28,7 +29,6 @@ public class EndScript : MonoBehaviour {
             yield return new WaitForSeconds(30f);
         }
         
-
         float x = black.color.a;
 
         while (black.color.a < 1.0f) {
@@ -36,6 +36,12 @@ public class EndScript : MonoBehaviour {
             x += Time.deltaTime * 0.5f;
             asou.volume = Mathf.Lerp(0.0f, 1f, 1f-x);
             yield return new WaitForEndOfFrame();
+        }
+
+        if (endScene2) {
+            SceneManager.LoadScene(0);
+        } else {
+            SceneManager.LoadScene(3);
         }
     }
 }

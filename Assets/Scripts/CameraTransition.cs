@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CameraTransition : MonoBehaviour {
 
@@ -24,7 +25,7 @@ public class CameraTransition : MonoBehaviour {
 			cursor++;
 			StartCoroutine (moveToNextPoint ());
 		} else {
-			Debug.Log ("the end");
+            SceneManager.LoadScene(2);
 		}
     }
 
