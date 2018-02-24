@@ -7,7 +7,7 @@ public class LanguageSelect : MonoBehaviour {
 	[SerializeField]
 	protected Text[] texts;
 
-	private Language current_language;
+	private static Language current_language = Language.ENGLISH;
 
 	private enum Language {
 		FRANCAIS,
@@ -19,7 +19,6 @@ public class LanguageSelect : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		current_language = Language.ENGLISH;
 		lang_labels[Language.FRANCAIS] = "- Français -";
 		lang_labels[Language.ENGLISH] = "- English -";
 
@@ -33,5 +32,10 @@ public class LanguageSelect : MonoBehaviour {
 
 		texts[0].text = lang_labels[current_language];
 		texts[1].text = press_labels[current_language];
+	}
+
+	public static int GetSceneNumber() {
+		if (current_language == Language.ENGLISH) return 1;
+		else return 4;
 	}
 }

@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 222720167707536912}
   - component: {fileID: 114023835813284824}
   - component: {fileID: 114208540066762102}
+  - component: {fileID: 114299355091692362}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -256,7 +257,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 53
-    m_Alignment: 4
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
@@ -303,7 +304,7 @@ MonoBehaviour:
   - My parents don't understand me...+They have no way to know what+I'm going through...
   - I finally made it !+No more school, no more teacher.+A whole new world awaits
     me.
-  - My dear, I love you so much.+With our new born baby, +we can start something now.
+  - My dear, I love you so much.+With our new born baby, +we can start something new.
   - I am peaceful.+My wife and my childs bring me so much joy.
   - Life looks so slow+and yet so fast at the same time.+Mommy, daddy, I love you
     both, you know?+I hope the two of you rest in peace,+wherever you are.
@@ -356,6 +357,21 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &114299355091692362
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1816387952498842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4503cff88626954db9cf5313ab78e74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minAlpha: 0.5
+  maxAlpha: 1
+  isPlayer: 0
+  speed: 1
 --- !u!114 &114689803906861270
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -494,7 +510,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -265.93, y: -149.35}
+  m_AnchoredPosition: {x: -265.93, y: -152.1}
   m_SizeDelta: {x: 265.23, y: 191.96}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224975942389304308

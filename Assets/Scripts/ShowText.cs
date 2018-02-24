@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -64,9 +65,10 @@ public class ShowText : MonoBehaviour {
     private static string blinkingChar = "\n_";
 
     void blinkCursor() {
+        try {
             string last_char = objet.text.Substring(objet.text.Length - blinkingChar.Length);
             if (last_char == blinkingChar) objet.text = objet.text.Remove(objet.text.Length - blinkingChar.Length);
             else objet.text += blinkingChar;
-        
+        } catch(Exception e) {}
     }
 }

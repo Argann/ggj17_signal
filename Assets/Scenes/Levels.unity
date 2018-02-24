@@ -128,26 +128,6 @@ GameObject:
   m_PrefabParentObject: {fileID: 1476149778998968, guid: aab6596cc122b5e428fb09a3c67a91da,
     type: 2}
   m_PrefabInternal: {fileID: 467398900}
---- !u!1 &427007078 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1816387952498842, guid: 05d39848cecd7104d801138cb83f6f76,
-    type: 2}
-  m_PrefabInternal: {fileID: 1426819276}
---- !u!114 &427007083
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 427007078}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4503cff88626954db9cf5313ab78e74, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minAlpha: 0.5
-  maxAlpha: 1
-  isPlayer: 0
-  speed: 1
 --- !u!1 &440467014 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1520486128609790, guid: aab6596cc122b5e428fb09a3c67a91da,
@@ -524,21 +504,6 @@ Prefab:
       propertyPath: waypoints.Array.data[17]
       value: 
       objectReference: {fileID: 112682581}
-    - target: {fileID: 114023835813284824, guid: 05d39848cecd7104d801138cb83f6f76,
-        type: 2}
-      propertyPath: m_FontData.m_Alignment
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114023835813284824, guid: 05d39848cecd7104d801138cb83f6f76,
-        type: 2}
-      propertyPath: m_Text
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 224754830753566614, guid: 05d39848cecd7104d801138cb83f6f76,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: -152.1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 05d39848cecd7104d801138cb83f6f76, type: 2}
   m_IsPrefabParent: 0
@@ -595,6 +560,11 @@ Prefab:
         type: 2}
       propertyPath: m_Color.b
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 58990900067948074, guid: b62c0a52e28f47042827f3c3a754513c,
+        type: 2}
+      propertyPath: m_Radius
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b62c0a52e28f47042827f3c3a754513c, type: 2}
