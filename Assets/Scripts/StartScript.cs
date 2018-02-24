@@ -46,6 +46,6 @@ public class StartScript : MonoBehaviour {
             yield return new WaitForEndOfFrame();
         }
 
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(LanguageSelect.GetSceneNumber());
     }
 }

@@ -26,7 +26,7 @@ public class EndScript : MonoBehaviour {
         if (endScene2) {
             yield return new WaitForSeconds(10f);
         } else {
-            yield return new WaitForSeconds(30f);
+            yield return new WaitForSeconds(18f);
         }
         
         float x = black.color.a;
