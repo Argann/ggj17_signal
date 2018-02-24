@@ -61,6 +61,7 @@ GameObject:
   - component: {fileID: 81728928830387468}
   - component: {fileID: 114689803906861270}
   - component: {fileID: 114735824011510824}
+  - component: {fileID: 82985480515566362}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -129,10 +130,12 @@ Camera:
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 0
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
-  m_StereoMirrorMode: 0
 --- !u!81 &81728928830387468
 AudioListener:
   m_ObjectHideFlags: 1
@@ -140,6 +143,86 @@ AudioListener:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1951800987334394}
   m_Enabled: 1
+--- !u!82 &82985480515566362
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1951800987334394}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 6a3370d0744891f49afd0c9c58bf9855, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.3
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!92 &92443296587955924
 Behaviour:
   m_ObjectHideFlags: 1
@@ -167,12 +250,12 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_Font: {fileID: 12800000, guid: 8faa195d82dec504ab685a79d566cde4, type: 3}
+    m_FontSize: 15
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 40
+    m_MaxSize: 53
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -200,7 +283,7 @@ MonoBehaviour:
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
-  m_DynamicPixelsPerUnit: 1
+  m_DynamicPixelsPerUnit: 30
 --- !u!114 &114208540066762102
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -215,19 +298,19 @@ MonoBehaviour:
   texts:
   - '"My beloved child."+I know this voice.+She has been with me since I exist.'
   - This world is wonderful.+I love my mommy and my daddy.+They are playing with me.
-  - I have so many friends !I like to have fun with them !+If only I didn't have to
-    go to school.
+  - I have so many friends !+I like to have fun with them !+If only I didn't have
+    to go to school.
   - My parents don't understand me...+They have no way to know what+I'm going through...
   - I finally made it !+No more school, no more teacher.+A whole new world awaits
     me.
-  - My dear, I love you so much.
+  - My dear, I love you so much.+With our new born baby, +we can start something now.
   - I am peaceful.+My wife and my childs bring me so much joy.
   - Life looks so slow+and yet so fast at the same time.+Mommy, daddy, I love you
     both, you know?+I hope the two of you rest in peace,+wherever you are.
   - My beloved wife.+Our childs have grown big now.+They have become wonderful adults.+I
     may meet you again now.
   launchAtStart: 0
-  cooldown: 0.07
+  cooldown: 0.03
   waitBeforeStart: 1
   waitBeforeEnd: 1
 --- !u!114 &114241947421118924
@@ -305,6 +388,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   cursor: 0
+  beep: {fileID: 8300000, guid: aaf1af5d90f191047bbddf0eec1ddb65, type: 3}
 --- !u!114 &114735824011510824
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -317,15 +401,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colors:
-  - {r: 0, g: 0.5352938, b: 0.85294116, a: 1}
-  - {r: 0.7352941, g: 0.10649086, b: 0, a: 1}
-  - {r: 0.9632353, g: 0.89680517, b: 0, a: 1}
-  - {r: 0.67165875, g: 0.74264705, b: 0.6838981, a: 1}
-  - {r: 0, g: 0.6764706, b: 0.11663288, a: 1}
-  - {r: 0.7941176, g: 0, b: 0.50933063, a: 1}
-  - {r: 0.41521317, g: 0, b: 0.6764706, a: 1}
-  - {r: 0.58823526, g: 0.58823526, b: 0.58823526, a: 1}
-  - {r: 0.029411793, g: 0.51805294, b: 1, a: 1}
+  - {r: 0, g: 0.9632353, b: 0.32550722, a: 1}
+  - {r: 0, g: 0.9647059, b: 0.3254902, a: 1}
+  - {r: 0, g: 0.9647059, b: 0.3254902, a: 1}
+  - {r: 0, g: 0.9647059, b: 0.3254902, a: 1}
+  - {r: 0, g: 0.9647059, b: 0.3254902, a: 1}
+  - {r: 0, g: 0.9647059, b: 0.3254902, a: 1}
+  - {r: 0, g: 0.9647059, b: 0.3254902, a: 1}
+  - {r: 0, g: 0.9647059, b: 0.3254902, a: 1}
+  - {r: 0, g: 0.9647059, b: 0.3254902, a: 1}
   speeds:
   - 1
   - 1
@@ -362,7 +446,7 @@ Canvas:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1017629918165604}
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_RenderMode: 2
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
@@ -371,6 +455,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
