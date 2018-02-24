@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -46,11 +47,28 @@ public class ShowText : MonoBehaviour {
             yield return new WaitForSeconds(cooldown);
         }
 		yield return new WaitForSeconds(waitBeforeEnd);
-		
+        if (!launchAtStart) InvokeRepeating("blinkCursor", 0, 1);
+		StartCoroutine(waitForInput());
+    }
+
+    public IEnumerator waitForInput() {
+        while (!Input.anyKey) yield return new WaitForEndOfFrame();
         if (!launchAtStart) {
             objet.text = "";
             current++;
             Camera.main.GetComponent<CameraTransition>().Next();
         }
+        yield return new WaitForEndOfFrame();
+        CancelInvoke();
+    }
+
+    private static string blinkingChar = "\n_";
+
+    void blinkCursor() {
+        try {
+            string last_char = objet.text.Substring(objet.text.Length - blinkingChar.Length);
+            if (last_char == blinkingChar) objet.text = objet.text.Remove(objet.text.Length - blinkingChar.Length);
+            else objet.text += blinkingChar;
+        } catch(Exception e) {}
     }
 }

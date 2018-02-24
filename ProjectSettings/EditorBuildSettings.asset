@@ -7,9 +7,16 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Scenes/Demo_StartMenu.unity
+    guid: 8e3e6aa63e0ee214eac8c157fe76a093
   - enabled: 1
     path: Assets/Scenes/Levels.unity
+    guid: 7fc5c1eb4a4ee914b84c6c20ac9d96e7
   - enabled: 1
     path: Assets/Scenes/Demo_Credits.unity
+    guid: 646379ca59a2ef44695709de413adaa4
   - enabled: 1
     path: Assets/Scenes/Demo_Credits2.unity
+    guid: 9442ba16778b3f749981f3d7f19fbec8
+  - enabled: 1
+    path: Assets/Scenes/Levels_fr.unity
+    guid: 9abe86fcbea29a446a16fbfe7339a766

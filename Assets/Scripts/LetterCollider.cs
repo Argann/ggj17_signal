@@ -15,7 +15,9 @@ public class LetterCollider : MonoBehaviour {
 		parent = GameObject.FindGameObjectWithTag ("Canvas");
 		// Instanciation d'une lettre
 		Vector3 pos = parent.transform.position;
-		instanciedLetter = Instantiate (letter, transform.position, new Quaternion (), parent.transform);
+		instanciedLetter = Instantiate (letter, pos, new Quaternion (), parent.transform);
+		instanciedLetter.transform.position = transform.position;
+		//instanciedLetter.AddComponent<AlphaBlink>();
 		instanciedLetter.GetComponent<Text>().text = value;
 	}
 
